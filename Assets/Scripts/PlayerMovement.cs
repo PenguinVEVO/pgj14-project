@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Mode: Sprinting
-        if (grounded && Input.GetKey(sprintKey))
+        if (grounded && Input.GetKey(sprintKey) && state != MovementState.crouching)
         {
             state = MovementState.sprinting;
 
