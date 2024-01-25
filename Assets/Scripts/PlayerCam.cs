@@ -45,6 +45,7 @@ public class PlayerCam : MonoBehaviour
 		   {
 			   Debug.Log(hit.transform.name);
 			   hit.collider.gameObject.SendMessage("move");
+			   hit.collider.gameObject.SendMessage("rotate");
 		   }
 		}
     }
