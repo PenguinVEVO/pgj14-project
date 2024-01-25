@@ -8,6 +8,7 @@ public class PlayerCam : MonoBehaviour
     public float sensY;
     public float pitchUp;
     public float pitchDown;
+	Camera p_Camera;
 
     public Transform orientation;
 
@@ -19,6 +20,7 @@ public class PlayerCam : MonoBehaviour
         // Lock and hide cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+		p_Camera = transform.gameObject.GetComponent<Camera>();
     }
 
     private void Update()
@@ -34,7 +36,17 @@ public class PlayerCam : MonoBehaviour
         // Rotate camera and orientation
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
-
-        Debug.Log(Time.deltaTime);
+		
+		if (Input.GetMouseButtonDown(0))
+		{
+		   Vector3 mousePosition = Input.mousePosition;
+		   Ray ray = p_Camera.ScreenPointToRay(mousePosition);
+		   if (Physics.Raycast(ray, out RaycastHit hit))
+		   {
+			   Debug.Log(hit.transform.name);
+			   hit.collider.gameObject.SendMessage("move");
+		   }
+		}
     }
+
 }
