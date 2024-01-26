@@ -30,7 +30,6 @@ public class setPowerLevel : MonoBehaviour
 	public void transferLevel(GameObject target)
 	{
 		int amount = (int)(target.GetComponent<setPowerLevel>().cap - target.GetComponent<setPowerLevel>().level);
-		Debug.Log(level - Mathf.Max(0, (level - amount)));
 		target.GetComponent<setPowerLevel>().level += level - Mathf.Max(0, (level - amount));
 		this.level = Mathf.Max(0, this.level - amount);
 		target.GetComponent<setPowerLevel>().setLed();

@@ -33,7 +33,7 @@ public class mainControllerScript : MonoBehaviour
 	
 	public void onPuzzleAComplete()
 	{
-		Debug.Log("IMBOUTTACUUUUUUUU");
+		
 	}
 	
 	public void onPuzzleBComplete()

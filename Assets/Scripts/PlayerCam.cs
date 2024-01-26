@@ -43,7 +43,6 @@ public class PlayerCam : MonoBehaviour
 		   Ray ray = p_Camera.ScreenPointToRay(mousePosition);
 		   if (Physics.Raycast(ray, out RaycastHit hit))
 		   {
-			   Debug.Log(hit.transform.name);
 			   hit.collider.gameObject.SendMessage("move");
 			   hit.collider.gameObject.SendMessage("rotate");
 		   }
