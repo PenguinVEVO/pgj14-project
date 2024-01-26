@@ -6,16 +6,19 @@ public class setPowerLevel : MonoBehaviour
 {
 	public float level;
 	public float cap = 100;
+	public int numLevel;
 	
     // Start is called before the first frame update
     void Start()
     {
-        int numLeds = (int)	Mathf.Floor((level/cap) * 3.0F);
+        int numLeds = (int)	Mathf.Ceil((level/cap) * 3.0F);
 		for (int i = 1; i < numLeds+1; i++)
 		{
 			gameObject.transform.Find(i.ToString()).gameObject.SetActive(true);
 			gameObject.transform.Find(i.ToString() + "NG").gameObject.SetActive(false);
 		}
+		
+		numLevel = numLeds;
     }
 
     // Update is called once per frame
@@ -36,7 +39,7 @@ public class setPowerLevel : MonoBehaviour
 	
 	public void setLed()
 	{
-		int numLeds = (int)	Mathf.Floor((level/cap) * 3.0F);
+		int numLeds = (int)	Mathf.Ceil((level/cap) * 3.0F);
 		
 		for (int i = 1; i < 4; i++)
 		{
@@ -49,6 +52,8 @@ public class setPowerLevel : MonoBehaviour
 			gameObject.transform.Find(i.ToString()).gameObject.SetActive(true);
 			gameObject.transform.Find(i.ToString() + "NG").gameObject.SetActive(false);
 		}
+		
+		numLevel = numLeds;
 	}
 	
 }
