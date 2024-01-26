@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System; 
+using System.IO; 
+using System.Text;
 
 public class mainControllerScript : MonoBehaviour
 {
@@ -26,14 +30,48 @@ public class mainControllerScript : MonoBehaviour
 	
 	public GameObject litRed;
 	public GameObject litCeil;
+	public GameObject dialogue;
+	
+	private List<string> AIDial = new List<string>();
 	
     // Start is called before the first frame update
     void Start()
     {
+		dialogue.GetComponent<TextMeshProUGUI>().text = "";
+		const int BufferSize = 128;
+		using (var fileStream = File.OpenRead(Application.dataPath + "/Prefabs/AIDIALOGUE.TXT"))
+		{
+			using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize)) 
+			{
+				String line;
+				while ((line = streamReader.ReadLine()) != null)
+				{
+				  AIDial.Add(line);
+				}
+			}
+		}
+		
+		StartCoroutine(displayText(1));
+		
         ceilLightUnlit = GameObject.FindGameObjectsWithTag("ceilUnlit");
 		redLightUnlit = GameObject.FindGameObjectsWithTag("redUnlit");
-		
+
     }
+	
+	IEnumerator displayText(int index)
+	{
+		int count = 0;
+		while (count < AIDial[index].Length)
+		{
+			yield return new WaitForSeconds (0.1f);
+			dialogue.GetComponent<TextMeshProUGUI>().text += AIDial[index][count];
+			count++;		
+		}
+		
+		yield return new WaitForSeconds (3);
+		dialogue.GetComponent<TextMeshProUGUI>().text = "";
+
+	}
 
     // Update is called once per frame
     void Update()
@@ -70,6 +108,7 @@ public class mainControllerScript : MonoBehaviour
 	public void unlockCommand()
 	{
 		centralCommandUnlocked = true;
+		StartCoroutine(displayText(2));
 	}
 
 }
