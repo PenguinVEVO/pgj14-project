@@ -121,8 +121,8 @@ Material:
     - _Metallic: 0.25
     - _N_Amount: 16.79
     - _N_Smoothness: 0.22
-    - _N_Strength: 4.47
-    - _N_Thickness: -1.52
+    - _N_Strength: 13.42
+    - _N_Thickness: -3.5
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
