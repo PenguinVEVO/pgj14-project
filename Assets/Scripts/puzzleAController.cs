@@ -21,15 +21,18 @@ public class puzzleAController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tankA.GetComponent<setPowerLevel>().numLevel == tankB.GetComponent<setPowerLevel>().numLevel && !puzzleAComplete)
+		if (tankA && tankB)
 		{
-			foreach(GameObject button in buttons)
+			if (tankA.GetComponent<setPowerLevel>().numLevel == tankB.GetComponent<setPowerLevel>().numLevel && !puzzleAComplete)
 			{
-				button.GetComponent<SphereCollider>().enabled = false;
+				foreach(GameObject button in buttons)
+				{
+					button.GetComponent<SphereCollider>().enabled = false;
+				}
+				
+				puzzleAComplete = true;
+				mainController.onPuzzleAComplete();
 			}
-			
-			puzzleAComplete = true;
-			mainController.onPuzzleAComplete();
 		}
     }
 }
