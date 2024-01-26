@@ -14,7 +14,6 @@ public class inventoryController : MonoBehaviour
 	public bool bait = true;
 	public bool fuelRod = false;
 	
-	
     // Start is called before the first frame update
     void Start()
     {

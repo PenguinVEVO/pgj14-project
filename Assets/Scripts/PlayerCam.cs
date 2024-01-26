@@ -45,6 +45,9 @@ public class PlayerCam : MonoBehaviour
 		   {
 			   hit.collider.gameObject.SendMessage("move");
 			   hit.collider.gameObject.SendMessage("rotate");
+			   hit.collider.gameObject.SendMessage("getRebreather");
+			   hit.collider.gameObject.SendMessage("getFlare");
+			   hit.collider.gameObject.SendMessage("getFuelRod");
 		   }
 		}
     }
