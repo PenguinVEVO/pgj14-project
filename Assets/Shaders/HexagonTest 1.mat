@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HexagonTest
+  m_Name: HexagonTest 1
   m_Shader: {fileID: -6465566751694194690, guid: 5ee3b7ef427903849a9c4f987c98b8a4,
     type: 3}
   m_Parent: {fileID: 0}
@@ -145,5 +145,5 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Tiling: {r: 2, g: 1, b: 0, a: 0}
+    - _Tiling: {r: 1.9, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
