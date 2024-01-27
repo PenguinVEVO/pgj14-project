@@ -61,6 +61,7 @@ public class mainControllerScript : MonoBehaviour
 	IEnumerator displayText(int index)
 	{
 		int count = 0;
+		dialogue.GetComponent<TextMeshProUGUI>().text = "";
 		while (count < AIDial[index].Length)
 		{
 			yield return new WaitForSeconds (0.1f);
@@ -109,6 +110,11 @@ public class mainControllerScript : MonoBehaviour
 	{
 		centralCommandUnlocked = true;
 		StartCoroutine(displayText(2));
+	}
+	
+	public void warnPlayer()
+	{
+		StartCoroutine(displayText(6));
 	}
 
 }
