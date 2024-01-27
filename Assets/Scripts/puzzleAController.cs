@@ -23,7 +23,7 @@ public class puzzleAController : MonoBehaviour
     {
 		if (tankA && tankB)
 		{
-			if (tankA.GetComponent<setPowerLevel>().numLevel == tankB.GetComponent<setPowerLevel>().numLevel && !puzzleAComplete)
+			if (tankA.GetComponent<setPowerLevel>().numLevel == tankB.GetComponent<setPowerLevel>().numLevel && !puzzleAComplete && tankA.GetComponent<setPowerLevel>().numLevel > 0)
 			{
 				foreach(GameObject button in buttons)
 				{

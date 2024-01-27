@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System; 
 using System.IO; 
@@ -31,6 +32,10 @@ public class mainControllerScript : MonoBehaviour
 	public GameObject litRed;
 	public GameObject litCeil;
 	public GameObject dialogue;
+	public Camera boom;
+	public Camera main;
+	public GameObject player;
+	public GameObject explode;
 	
 	private List<string> AIDial = new List<string>();
 	
@@ -72,6 +77,12 @@ public class mainControllerScript : MonoBehaviour
 		yield return new WaitForSeconds (3);
 		dialogue.GetComponent<TextMeshProUGUI>().text = "";
 
+	}	
+	
+	IEnumerator loadNext()
+	{
+		yield return new WaitForSeconds (3.0f);
+		SceneManager.LoadScene("GNOME", LoadSceneMode.Additive);
 	}
 
     // Update is called once per frame
@@ -99,6 +110,13 @@ public class mainControllerScript : MonoBehaviour
 		}
 		
 		puzzleAflag = true;
+		
+		StartCoroutine(displayText(7));
+		DestroyImmediate(player.GetComponent<PlayerMovement>());
+		main.gameObject.SetActive(false);
+		boom.gameObject.SetActive(true);
+		explode.SetActive(true);
+		StartCoroutine(loadNext());
 	}
 	
 	public void onPuzzleBComplete()
