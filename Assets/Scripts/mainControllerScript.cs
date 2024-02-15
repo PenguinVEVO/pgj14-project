@@ -82,7 +82,7 @@ public class mainControllerScript : MonoBehaviour
 	IEnumerator loadNext()
 	{
 		yield return new WaitForSeconds (3.0f);
-		SceneManager.LoadScene("GNOME", LoadSceneMode.Additive);
+		SceneManager.LoadScene("GNOME", LoadSceneMode.Single);
 	}
 
     // Update is called once per frame

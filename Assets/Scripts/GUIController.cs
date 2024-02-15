@@ -76,6 +76,6 @@ public class GUIController : MonoBehaviour
 	
 	public void st()
 	{
-		SceneManager.LoadScene("mainStage", LoadSceneMode.Additive);
+		SceneManager.LoadScene("mainStage", LoadSceneMode.Single);
 	}
 }
